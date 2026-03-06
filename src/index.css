@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Chillax', sans-serif;
+
+  --color-swype-dark: #161A30;
+  --color-swype-mid: #31304D;
+  --color-swype-silver: #B6BBC4;
+  --color-swype-cream: #F0ECE5;
+  --color-swype-accent: #94A378;
+  --color-swype-accent-dark: #7B8A62;
+  --color-swype-sage: #94A378;
+  --color-swype-gold: #E5BA41;
+  --color-swype-terra: #D1855C;
+
+  --color-deep-navy: #161A30;
+  --color-ocean-blue: #31304D;
+  --color-soft-gray: #F0ECE5;
+  --color-success: #94A378;
+  --color-warning: #E5BA41;
+  --color-danger: #D1855C;
+  --color-swype-red: #94A378;
+  --color-swype-red-light: #A8B68E;
+  --color-swype-red-dark: #7B8A62;
+
+  --color-surface: #ffffff;
+  --color-surface-hover: #f9f9f9;
+}
+
+* {
+  font-family: 'Chillax', sans-serif;
+}
+
+body {
+  font-family: 'Chillax', sans-serif;
+  background-color: #F0ECE5;
+  color: #161A30;
+  margin: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.dark body,
+html.dark body {
+  background-color: #161A30;
+  color: #F0ECE5;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F0ECE5;
+}
+.dark ::-webkit-scrollbar-track {
+  background: #161A30;
+}
+::-webkit-scrollbar-thumb {
+  background: #B6BBC4;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #31304D;
+}
+
+/* ── Entrance animations ── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.45s ease-out both;
+}
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-out both;
+}
+
+.animate-scale {
+  animation: scaleIn 0.4s ease-out both;
+}
+
+/* Stagger delays for child cards */
+.stagger > :nth-child(1) { animation-delay: 0ms; }
+.stagger > :nth-child(2) { animation-delay: 60ms; }
+.stagger > :nth-child(3) { animation-delay: 120ms; }
+.stagger > :nth-child(4) { animation-delay: 180ms; }
+.stagger > :nth-child(5) { animation-delay: 240ms; }
+.stagger > :nth-child(6) { animation-delay: 300ms; }
+.stagger > :nth-child(7) { animation-delay: 360ms; }
+.stagger > :nth-child(8) { animation-delay: 420ms; }
+.stagger > :nth-child(9) { animation-delay: 480ms; }
+.stagger > :nth-child(10) { animation-delay: 540ms; }
+.stagger > :nth-child(n+11) { animation-delay: 600ms; }
+
+/* ── Dashed-circle loading spinner (Lordicon #715 style) ── */
+@keyframes spinnerRotate {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes dashedSpinnerColor {
+  0%, 100% { stroke: #DDA853; opacity: 0.3; }
+  25% { stroke: #27548A; opacity: 1; }
+  50% { stroke: #183B4E; opacity: 0.6; }
+  75% { stroke: #DDA853; opacity: 1; }
+}
